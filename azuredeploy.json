@@ -6,17 +6,6 @@
 
   "parameters": {
 
-    "vmName": {
-
-            "type": "string",
-
-            "metadata": {
-
-                "description": "Name for the Virtual Machine."
-
-            }
-
-        },
     "adminUsername": {
 
       "type": "string",
@@ -132,6 +121,8 @@
     "publicIPAddressType": "Dynamic",
 
     "vmStorageAccountContainerName": "vhds",
+
+    "vmName": "MyWindowsVM",
 
     "vmSize": "Standard_DS1",
 
@@ -289,7 +280,7 @@
 
       "type": "Microsoft.Compute/virtualMachines",
 
-      "name": "[[parameters('vmName')]]",
+      "name": "[variables('vmName')]",
 
       "location": "[resourceGroup().location]",
 
@@ -311,7 +302,7 @@
 
         "osProfile": {
 
-          "computername": "[parameters('vmName')]",
+          "computername": "[variables('vmName')]",
 
           "adminUsername": "[parameters('adminUsername')]",
 
@@ -393,7 +384,7 @@
 
           "dependsOn": [
 
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
 
           ],
 
