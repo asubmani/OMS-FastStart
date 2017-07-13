@@ -55,7 +55,7 @@
     },
     "variables": {
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]",
-        "apiVersion": "2015-06-15",
+        "apiVersion": "2017-06-01",
         "imagePublisher": "MicrosoftWindowsServer",
         "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
@@ -144,7 +144,7 @@
             }
         },
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2017-03-30",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[variables('vmName')]",
             "location": "[resourceGroup().location]",
